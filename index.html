@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thrive Together Circle — Brand Guidelines</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+  :root{
+    --mag:#E8196A;
+    --pink:#F0508A;
+    --ora:#F07820;
+    --oralt:#F5A84A;
+    --gold:#C9952A;
+    --goldlt:#E8C060;
+    --blush:#FFF5F8;
+    --white:#ffffff;
+    --berry:#8B1A4A;
+    --mid:#6B2A3A;
+    --muted:#A0506A;
+    --faded:#C07888;
+    --quiet:#D8A0B0;
+    --onvivid:#FFE8F0;
+    --bdr:rgba(232,25,106,0.13);
+    --shd:rgba(232,25,106,0.07);
+    --GM:linear-gradient(135deg,#E8196A 0%,#F0508A 42%,#F07820 100%);
+    --GA:linear-gradient(135deg,#F07820 0%,#F5A84A 50%,#E8196A 100%);
+    --GS:linear-gradient(135deg,rgba(232,25,106,0.08) 0%,rgba(240,120,32,0.06) 100%);
+    --GT:repeating-linear-gradient(45deg,transparent,transparent 36px,rgba(201,149,42,0.20) 36px,rgba(201,149,42,0.20) 37px);
+    --serif:'DM Serif Display',Georgia,serif;
+    --sans:'DM Sans',system-ui,sans-serif;
+    --rad:14px;
+    --rad-sm:9px;
+    --rad-pill:50px;
+  }
+
+  html{scroll-behavior:smooth}
+
+  body{
+    font-family:var(--sans);
+    background:var(--blush);
+    color:var(--mid);
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar{
+    position:fixed;top:0;left:0;width:220px;height:100vh;
+    background:var(--white);
+    border-right:1px solid var(--bdr);
+    display:flex;flex-direction:column;
+    z-index:200;
+    overflow:hidden;
+  }
+
+  .sidebar-brand{
+    padding:24px 20px 20px;
+    border-bottom:1px solid var(--bdr);
+    display:flex;flex-direction:column;align-items:center;
+    gap:10px;
+    background:var(--blush);
+  }
+
+  .sidebar-brand svg{filter:drop-shadow(0 2px 8px rgba(232,25,106,0.15))}
+
+  .brand-name{
+    font-family:var(--serif);font-size:13px;color:var(--berry);
+    text-align:center;line-height:1.3;
+  }
+  .brand-name em{font-style:italic;color:var(--mag)}
+
+  .sidebar-nav{flex:1;overflow-y:auto;padding:12px 10px}
+  .sidebar-nav::-webkit-scrollbar{width:3px}
+  .sidebar-nav::-webkit-scrollbar-thumb{background:var(--bdr)}
+
+  .nav-section{margin-bottom:6px}
+  .nav-label{
+    font-size:9px;font-weight:700;letter-spacing:1.8px;
+    text-transform:uppercase;color:var(--quiet);
+    padding:8px 10px 4px;display:block;
+  }
+  .nav-btn{
+    display:flex;align-items:center;gap:8px;
+    width:100%;padding:9px 12px;
+    border:none;background:none;cursor:pointer;
+    font-family:var(--sans);font-size:13px;font-weight:500;
+    color:var(--muted);border-radius:var(--rad-sm);
+    transition:all .18s;text-align:left;
+  }
+  .nav-btn .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--bdr);flex-shrink:0;
+    transition:background .18s;
+  }
+  .nav-btn:hover{background:var(--blush);color:var(--berry)}
+  .nav-btn:hover .dot{background:var(--mag)}
+  .nav-btn.active{background:rgba(232,25,106,0.08);color:var(--mag);font-weight:600}
+  .nav-btn.active .dot{background:var(--mag)}
+
+  .sidebar-footer{
+    padding:14px 16px;border-top:1px solid var(--bdr);
+    font-size:10px;color:var(--quiet);text-align:center;line-height:1.5;
+    background:var(--blush);
+  }
+  .sidebar-footer strong{color:var(--muted)}
+
+  /* ── MAIN CONTENT ── */
+  .content{
+    margin-left:220px;
+    min-height:100vh;
+  }
+
+  /* ── HERO ── */
+  .hero{
+    background:var(--GM);
+    position:relative;overflow:hidden;
+    padding:56px 48px 64px;
+  }
+  .hero::before{content:'';position:absolute;inset:0;background:var(--GT);pointer-events:none}
+  .hero-glow1{position:absolute;top:-40%;left:-20%;width:70%;height:160%;background:radial-gradient(ellipse,rgba(255,255,255,0.10) 0%,transparent 60%);pointer-events:none}
+  .hero-glow2{position:absolute;bottom:-40%;right:-10%;width:60%;height:120%;background:radial-gradient(ellipse,rgba(245,168,74,0.25) 0%,transparent 60%);pointer-events:none}
+
+  .hero-inner{position:relative;z-index:1;max-width:560px}
+  .hero-eyebrow{
+    font-size:10px;font-weight:700;letter-spacing:2px;
+    text-transform:uppercase;color:rgba(255,255,255,0.72);
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-size:clamp(28px,5vw,42px);
+    color:#fff;line-height:1.15;margin-bottom:14px;
+  }
+  .hero h1 em{font-style:italic;color:var(--goldlt)}
+  .hero-desc{
+    font-size:15px;color:rgba(255,255,255,0.78);
+    line-height:1.7;max-width:420px;
+  }
+  .hero-pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:20px}
+  .hero-pill{
+    font-size:10px;font-weight:700;letter-spacing:1px;
+    padding:5px 12px;border-radius:var(--rad-pill);
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.25);
+    color:rgba(255,255,255,0.90);
+  }
+
+  /* ── SECTIONS ── */
+  .section{
+    padding:48px 48px 56px;
+    border-bottom:1px solid var(--bdr);
+    display:none;
+  }
+  .section.active{display:block}
+
+  .sec-eyebrow{
+    font-size:9px;font-weight:700;letter-spacing:2px;
+    text-transform:uppercase;color:var(--mag);
+    margin-bottom:6px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .sec-eyebrow::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--bdr),transparent)}
+  .sec-title{
+    font-family:var(--serif);
+    font-size:clamp(22px,4vw,30px);
+    color:var(--berry);line-height:1.2;margin-bottom:8px;
+  }
+  .sec-title em{font-style:italic;color:var(--mag)}
+  .sec-desc{
+    font-size:14px;color:var(--muted);
+    line-height:1.72;margin-bottom:32px;max-width:520px;
+  }
+
+  /* ── CARDS ── */
+  .card{
+    background:var(--white);border-radius:var(--rad);
+    border:1px solid var(--bdr);
+    box-shadow:0 2px 18px var(--shd);
+    padding:24px;margin-bottom:14px;
+  }
+  .card-label{
+    font-size:9px;font-weight:700;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--mag);margin-bottom:16px;
+  }
+  .card-note{
+    font-size:11.5px;color:var(--quiet);
+    margin-top:12px;line-height:1.55;
+    padding-top:12px;border-top:1px solid var(--bdr);
+  }
+
+  /* ── PALETTE ── */
+  .pal-strip{
+    display:flex;border-radius:10px;overflow:hidden;
+    height:56px;margin-bottom:20px;
+  }
+  .ps{flex:1}
+
+  .pal-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+    gap:8px;margin-bottom:16px;
+  }
+  .swatch{
+    display:flex;align-items:center;gap:10px;
+    padding:11px 13px;background:var(--white);
+    border-radius:10px;border:1px solid var(--bdr);
+    cursor:pointer;transition:all .15s;
+  }
+  .swatch:hover{box-shadow:0 3px 14px var(--shd);transform:translateY(-1px)}
+  .swatch-dot{width:32px;height:32px;border-radius:7px;flex-shrink:0}
+  .swatch-name{font-family:var(--serif);font-size:13px;color:var(--berry)}
+  .swatch-hex{font-size:10px;color:var(--quiet);font-family:monospace;margin-top:1px}
+  .swatch-hex.flashed{color:var(--mag)!important}
+  .swatch-role{font-size:10px;color:var(--muted)}
+
+  .grad-preview{
+    border-radius:10px;overflow:hidden;height:56px;
+    position:relative;
+  }
+  .grad-preview::before{content:'';position:absolute;inset:0;background:var(--GT)}
+
+  /* ── TYPE ── */
+  .type-specimen{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--bdr)}
+  .type-specimen:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+  .type-meta{font-size:9px;font-weight:700;letter-spacing:1.2px;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+  .type-scale{font-size:9px;color:var(--quiet);font-family:monospace;margin-top:6px}
+
+  /* ── LOGO ── */
+  .logo-contexts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  .logo-ctx{
+    border-radius:var(--rad);padding:28px 20px;
+    display:flex;flex-direction:column;align-items:center;gap:12px;
+  }
+  .logo-ctx.light{background:var(--blush);border:1px solid var(--bdr)}
+  .logo-ctx.dark{background:var(--GM);position:relative;overflow:hidden}
+  .logo-ctx.dark::before{content:'';position:absolute;inset:0;background:var(--GT)}
+  .logo-ctx.dark svg{position:relative;z-index:1}
+  .logo-ring{
+    background:rgba(255,255,255,0.18);border-radius:50%;
+    padding:10px;display:inline-flex;position:relative;z-index:1;
+  }
+  .logo-ctx-label{font-size:11px;color:var(--muted);text-align:center}
+  .logo-ctx.dark .logo-ctx-label{color:rgba(255,255,255,0.72);position:relative;z-index:1}
+
+  .anatomy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+  .anatomy-item{
+    padding:12px 14px;background:var(--blush);
+    border-radius:var(--rad-sm);border:1px solid var(--bdr);
+  }
+  .anatomy-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .anatomy-val{font-size:12.5px;color:var(--mid);line-height:1.5}
+  .anatomy-hex{font-size:10px;color:var(--quiet);font-family:monospace;margin-top:2px}
+
+  .clearspace{
+    display:flex;align-items:center;justify-content:center;
+    padding:28px;border:2px dashed var(--bdr);
+    border-radius:var(--rad);position:relative;
+  }
+  .cs-label{
+    position:absolute;font-size:9px;color:var(--quiet);
+    font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  }
+  .cs-label.top{top:8px;left:50%;transform:translateX(-50%)}
+  .cs-label.bottom{bottom:8px;left:50%;transform:translateX(-50%)}
+  .cs-label.left{left:10px;top:50%;transform:translateY(-50%)}
+  .cs-label.right{right:10px;top:50%;transform:translateY(-50%)}
+
+  /* ── COMPONENTS ── */
+  .comp-row{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--bdr)}
+  .comp-row:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+  .comp-label{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .comp-note{font-size:11.5px;color:var(--quiet);margin-top:10px;line-height:1.55}
+
+  .btn-mag{background:var(--mag);color:#fff;font-family:var(--sans);font-size:13px;font-weight:700;padding:10px 22px;border-radius:var(--rad-pill);border:none;cursor:pointer;transition:filter .18s}
+  .btn-mag:hover{filter:brightness(0.90)}
+  .btn-ora{background:var(--ora);color:#fff;font-family:var(--sans);font-size:13px;font-weight:700;padding:10px 22px;border-radius:var(--rad-pill);border:none;cursor:pointer;transition:filter .18s}
+  .btn-ora:hover{filter:brightness(0.90)}
+  .btn-out{background:transparent;color:var(--mag);border:1.5px solid var(--mag);font-family:var(--sans);font-size:12px;font-weight:700;padding:8px 18px;border-radius:var(--rad-pill);cursor:pointer;transition:all .18s}
+  .btn-out:hover{background:var(--mag);color:#fff}
+  .btn-white{background:#fff;color:var(--mag);font-family:var(--sans);font-size:13px;font-weight:700;padding:10px 22px;border-radius:var(--rad-pill);border:none;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.12);transition:all .18s}
+  .btn-white:hover{box-shadow:0 4px 18px rgba(0,0,0,0.16);transform:translateY(-1px)}
+
+  .tier-row{display:flex;gap:8px;flex-wrap:wrap}
+  .tier{
+    border-radius:var(--rad);padding:16px 14px;flex:1;min-width:100px;
+    text-align:center;border:2px solid var(--bdr);background:var(--blush);
+    cursor:default;transition:all .22s;
+  }
+  .tier:hover{background:var(--GM);border-color:transparent}
+  .tier:hover .tier-name{color:#fff}
+  .tier:hover .tier-price{color:rgba(255,255,255,0.78)}
+  .tier-icon{font-size:20px;margin-bottom:5px}
+  .tier-name{font-family:var(--serif);font-size:14px;color:var(--berry);transition:color .22s}
+  .tier-price{font-size:11px;color:var(--muted);margin-top:2px;transition:color .22s}
+
+  .kp-list{display:flex;flex-direction:column;gap:6px}
+  .kp{
+    display:flex;align-items:flex-start;gap:10px;
+    padding:11px 14px;background:var(--blush);
+    border-radius:var(--rad-sm);border:1px solid var(--bdr);
+  }
+  .kp-bullet{color:var(--mag);font-size:13px;flex-shrink:0;margin-top:1px}
+  .kp-text{font-size:13.5px;color:var(--mid);line-height:1.55}
+
+  .jude-quote{
+    padding:14px 16px;background:var(--GS);
+    border-left:3px solid var(--mag);border-radius:0;
+    font-size:13px;color:var(--mid);line-height:1.65;font-style:italic;
+  }
+  .jq-lbl{
+    font-style:normal;font-weight:700;color:var(--mag);
+    font-size:9px;letter-spacing:1px;text-transform:uppercase;
+    display:block;margin-bottom:4px;
+  }
+
+  .tag-row{display:flex;gap:6px;flex-wrap:wrap}
+  .tag-pill{
+    font-size:10px;font-weight:600;padding:4px 10px;
+    border-radius:var(--rad-pill);
+    background:var(--blush);color:var(--muted);
+    border:1px solid var(--bdr);
+  }
+  .tag-pill.accent{background:rgba(232,25,106,0.10);color:var(--berry);border-color:rgba(232,25,106,0.20)}
+  .tag-pill.orange{background:rgba(240,120,32,0.10);color:#7A3800;border-color:rgba(240,120,32,0.20)}
+
+  /* ── TEMPLATES ── */
+  .slide-tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+  .slide-tab{
+    font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+    padding:6px 14px;border-radius:var(--rad-pill);border:1px solid var(--bdr);
+    background:var(--blush);color:var(--muted);cursor:pointer;font-family:var(--sans);
+    transition:all .18s;
+  }
+  .slide-tab.active{background:var(--mag);color:#fff;border-color:var(--mag)}
+
+  .slide-preview{border-radius:var(--rad);overflow:hidden;min-height:220px;position:relative}
+
+  .doc-frame{border-radius:var(--rad);overflow:hidden;border:1px solid var(--bdr)}
+  .doc-header{background:var(--GM);padding:20px 22px;position:relative;overflow:hidden}
+  .doc-header::before{content:'';position:absolute;inset:0;background:var(--GT)}
+  .doc-header-inner{position:relative;z-index:1;display:flex;align-items:center;gap:12px}
+  .doc-logo-ring{background:rgba(255,255,255,0.18);border-radius:50%;padding:5px;display:inline-flex;flex-shrink:0}
+  .doc-prog{background:rgba(232,25,106,0.06);padding:7px 22px;display:flex;align-items:center;gap:10px}
+  .prog-bar{height:4px;background:rgba(0,0,0,0.06);border-radius:2px;flex:1;overflow:hidden}
+  .prog-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--ora),var(--oralt))}
+  .prog-label{font-size:9px;font-weight:700;color:var(--ora)}
+  .doc-body{background:var(--white);padding:20px 22px}
+  .step-circle{
+    width:22px;height:22px;border-radius:50%;
+    background:var(--ora);display:flex;align-items:center;justify-content:center;
+    font-size:9px;font-weight:700;color:#fff;flex-shrink:0;
+  }
+  .step-row{
+    display:flex;align-items:center;gap:10px;
+    padding:11px 14px;background:var(--blush);
+    border-radius:var(--rad-sm);border:1px solid var(--bdr);margin-bottom:7px;
+  }
+  .step-text{font-size:13px;color:var(--mid)}
+
+  /* ── VOICE ── */
+  .voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+  .voice-box{padding:14px 16px;border-radius:var(--rad-sm);border:1px solid var(--bdr)}
+  .voice-box.do{background:rgba(240,120,32,0.05);border-color:rgba(240,120,32,0.20)}
+  .voice-box.dont{background:rgba(232,25,106,0.05);border-color:rgba(232,25,106,0.15)}
+  .voice-tag{
+    display:inline-block;font-size:9px;font-weight:700;letter-spacing:1px;
+    text-transform:uppercase;padding:3px 9px;border-radius:var(--rad-pill);
+    margin-bottom:7px;
+  }
+  .vt-do{background:rgba(240,120,32,0.12);color:#7A3800}
+  .vt-dont{background:rgba(232,25,106,0.10);color:#6B0030}
+  .voice-text{font-size:13px;color:var(--mid);line-height:1.6;font-style:italic}
+
+  .tagline-card{
+    background:var(--GM);border-radius:var(--rad);
+    padding:20px 22px;position:relative;overflow:hidden;margin-bottom:8px;
+  }
+  .tagline-card::before{content:'';position:absolute;inset:0;background:var(--GT)}
+  .tagline-text{
+    font-family:var(--serif);font-size:20px;color:#fff;
+    line-height:1.3;position:relative;z-index:1;
+  }
+  .tagline-text em{font-style:italic;color:var(--goldlt)}
+  .tagline-alt{
+    background:var(--blush);border-radius:var(--rad);
+    padding:14px 18px;border:1px solid var(--bdr);margin-bottom:8px;
+    font-family:var(--serif);font-size:16px;color:var(--mid);font-style:italic;
+  }
+
+  .principle-item{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:14px 16px;background:var(--white);
+    border-radius:var(--rad-sm);border:1px solid var(--bdr);
+    margin-bottom:8px;
+  }
+  .p-num{
+    width:26px;height:26px;border-radius:50%;
+    background:var(--GM);display:flex;align-items:center;justify-content:center;
+    font-size:11px;font-weight:700;color:#fff;flex-shrink:0;
+    position:relative;overflow:hidden;
+  }
+  .p-num::before{content:'';position:absolute;inset:0;background:var(--GT)}
+  .p-num span{position:relative;z-index:1}
+  .p-head{font-size:13.5px;font-weight:600;color:var(--berry);margin-bottom:3px}
+  .p-body{font-size:13px;color:var(--muted);line-height:1.58}
+
+  /* ── VIVID CTA FOOTER ── */
+  .brand-footer{
+    background:var(--GA);position:relative;overflow:hidden;
+    padding:40px 48px;text-align:center;
+  }
+  .brand-footer::before{content:'';position:absolute;inset:0;background:var(--GT)}
+  .brand-footer-inner{position:relative;z-index:1}
+  .bf-title{
+    font-family:var(--serif);font-size:24px;color:#fff;
+    line-height:1.3;margin-bottom:8px;
+  }
+  .bf-title em{font-style:italic;color:var(--goldlt)}
+  .bf-sub{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.62)}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:800px){
+    .sidebar{width:0;overflow:hidden}
+    .content{margin-left:0}
+    .section,.hero{padding-left:20px;padding-right:20px}
+    .logo-contexts{grid-template-columns:1fr}
+    .voice-grid{grid-template-columns:1fr}
+    .pal-grid{grid-template-columns:1fr 1fr}
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .section.active .card,.section.active .type-specimen,.section.active .comp-row,.section.active .principle-item{
+    animation:fadeUp .4s ease both;
+  }
+  .card:nth-child(1){animation-delay:.05s}
+  .card:nth-child(2){animation-delay:.10s}
+  .card:nth-child(3){animation-delay:.15s}
+  .card:nth-child(4){animation-delay:.20s}
+</style>
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══ -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+<img src="data:image/png;base64,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" alt="Thrive Together Circle logo" style="width:72px;height:72px;object-fit:contain">
+    <div class="brand-name">Thrive Together <em>Circle</em></div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section">
+      <span class="nav-label">Identity</span>
+      <button class="nav-btn active" onclick="show('palette')"><span class="dot"></span>Colour palette</button>
+      <button class="nav-btn" onclick="show('type')"><span class="dot"></span>Typography</button>
+      <button class="nav-btn" onclick="show('logo')"><span class="dot"></span>Logo</button>
+    </div>
+    <div class="nav-section">
+      <span class="nav-label">Design system</span>
+      <button class="nav-btn" onclick="show('comps')"><span class="dot"></span>Components</button>
+      <button class="nav-btn" onclick="show('templates')"><span class="dot"></span>Templates</button>
+    </div>
+    <div class="nav-section">
+      <span class="nav-label">Communication</span>
+      <button class="nav-btn" onclick="show('voice')"><span class="dot"></span>Voice & tone</button>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <strong>Brand Guidelines</strong><br>by Jude Hill · 2025
+  </div>
+</aside>
+
+<!-- ══ MAIN CONTENT ══ -->
+<main class="content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-glow1"></div>
+    <div class="hero-glow2"></div>
+    <div class="hero-inner">
+      <div style="margin-bottom:18px"><img src="data:image/png;base64,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" alt="Thrive Together Circle logo" style="width:100px;height:100px;object-fit:contain;filter:drop-shadow(0 2px 10px rgba(232,25,106,0.18))"></div>
+      <div class="hero-eyebrow">Thrive Together Circle · Brand System</div>
+      <h1>Your brand,<br>every output,<br><em>working for you.</em></h1>
+      <p class="hero-desc">A complete visual identity guide for Jude Hill's women's empowerment community. Clarity, Connection and Support — in every pixel.</p>
+      <div class="hero-pills">
+        <span class="hero-pill">Colour palette</span>
+        <span class="hero-pill">Typography</span>
+        <span class="hero-pill">Logo</span>
+        <span class="hero-pill">Components</span>
+        <span class="hero-pill">Templates</span>
+        <span class="hero-pill">Voice & tone</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PALETTE ══ -->
+  <section class="section active" id="sec-palette">
+    <div class="sec-eyebrow">01 — Colour system</div>
+    <h2 class="sec-title">Your <em>palette</em></h2>
+    <p class="sec-desc">Built from your logo, watercolour backgrounds and session banners. Click any swatch to copy the hex code.</p>
+
+    <div class="pal-strip">
+      <div class="ps" style="background:#E8196A"></div>
+      <div class="ps" style="background:#F0508A"></div>
+      <div class="ps" style="background:#F07820"></div>
+      <div class="ps" style="background:#F5A84A"></div>
+      <div class="ps" style="background:#C9952A"></div>
+      <div class="ps" style="background:#E8C060"></div>
+      <div class="ps" style="background:#FFF5F8;border-right:1px solid var(--bdr)"></div>
+    </div>
+
+    <div class="pal-grid" id="palGrid"></div>
+
+    <div class="card">
+      <div class="card-label">Gradient system</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4px">
+        <div>
+          <div class="grad-preview" style="background:var(--GM);margin-bottom:8px"></div>
+          <div style="font-size:12px;font-weight:600;color:var(--berry);margin-bottom:2px">Primary gradient</div>
+          <div style="font-size:11px;color:var(--muted)">Magenta → pink → orange</div>
+          <div style="font-size:10px;color:var(--quiet);font-family:monospace;margin-top:2px">Hero, CTA sections, featured cards</div>
+        </div>
+        <div>
+          <div class="grad-preview" style="background:var(--GA);margin-bottom:8px"></div>
+          <div style="font-size:12px;font-weight:600;color:var(--berry);margin-bottom:2px">Alt gradient</div>
+          <div style="font-size:11px;color:var(--muted)">Orange → golden → magenta</div>
+          <div style="font-size:10px;color:var(--quiet);font-family:monospace;margin-top:2px">About strips, CTA variants</div>
+        </div>
+      </div>
+      <div class="card-note">All gradient sections use the diagonal gold thread overlay (repeating-linear-gradient at 45deg, rgba(201,149,42,0.20)) — never use this on light backgrounds. It references the metallic thread in your watercolour artwork.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Text hierarchy on light backgrounds</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:10px;height:10px;border-radius:50%;background:#8B1A4A;flex-shrink:0"></div><span style="font-family:var(--serif);font-size:16px;color:#8B1A4A">Headlines — deep berry #8B1A4A</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:10px;height:10px;border-radius:50%;background:#6B2A3A;flex-shrink:0"></div><span style="font-size:14px;color:#6B2A3A">Body copy — berry mid #6B2A3A</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:10px;height:10px;border-radius:50%;background:#A0506A;flex-shrink:0"></div><span style="font-size:13px;color:#A0506A">Subtitles — muted #A0506A</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:10px;height:10px;border-radius:50%;background:#D8A0B0;flex-shrink:0"></div><span style="font-size:13px;color:#D8A0B0">Captions — quiet #D8A0B0</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:10px;height:10px;border-radius:50%;background:#FFE8F0;border:1px solid var(--bdr);flex-shrink:0"></div><span style="font-size:13px;color:#A0506A">On vivid backgrounds — #FFE8F0</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TYPOGRAPHY ══ -->
+  <section class="section" id="sec-type">
+    <div class="sec-eyebrow">02 — Type system</div>
+    <h2 class="sec-title">Fonts & <em>hierarchy</em></h2>
+    <p class="sec-desc">Two fonts only. DM Serif Display for all headlines. DM Sans for everything else. Never substitute or swap them.</p>
+
+    <div class="card">
+      <div class="card-label">DM Serif Display — the headline voice</div>
+      <div class="type-specimen">
+        <div class="type-meta">Display / hero — 36–42px</div>
+        <div style="font-family:var(--serif);font-size:38px;color:var(--berry);line-height:1.1">Thrive Together Circle</div>
+        <div class="type-scale">font-family: 'DM Serif Display' · font-size: 38px · color: #8B1A4A</div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">Section title — 22–28px · with italic em</div>
+        <div style="font-family:var(--serif);font-size:26px;color:var(--berry);line-height:1.2">Clarity, <em style="color:var(--mag);font-style:italic">Connection</em> and Support.</div>
+        <div class="type-scale">One italic em in #E8196A per headline — NEVER more than one · italic em is a brand signature</div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">Card / sub-headline — 16–18px</div>
+        <div style="font-family:var(--serif);font-size:18px;color:var(--berry);line-height:1.3">When life changes — <em style="color:var(--mag);font-style:italic">you don't do it alone.</em></div>
+        <div class="type-scale">font-size: 18px · same italic em rule applies</div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">On gradient backgrounds</div>
+        <div style="background:var(--GM);border-radius:10px;padding:20px;position:relative;overflow:hidden">
+          <div style="position:absolute;inset:0;background:var(--GT)"></div>
+          <div style="position:relative">
+            <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.72);text-transform:uppercase;margin-bottom:8px">Eyebrow label</div>
+            <div style="font-family:var(--serif);font-size:22px;color:#fff;line-height:1.2;margin-bottom:6px">Headline with <em style="color:#E8C060;font-style:italic">italic em in gold.</em></div>
+            <div style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.65">Body copy on gradient at 78% white opacity.</div>
+          </div>
+        </div>
+        <div class="type-scale">Gradient headlines: #ffffff · italic em: #E8C060 (gold-lt) · body: rgba(255,255,255,0.78) · labels: rgba(255,255,255,0.72)</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">DM Sans — the workhorse</div>
+      <div class="type-specimen">
+        <div class="type-meta">Section eyebrow labels — 9–10px uppercase</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--mag);text-transform:uppercase">Magenta label · section headers</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--ora);text-transform:uppercase">Orange label · accent details</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase">Gold label · metallic detail</div>
+        </div>
+        <div class="type-scale">DM Sans 700 · 9–10px · letter-spacing: 2px · always uppercase</div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">Body copy — 13–14px</div>
+        <div style="font-size:14px;color:var(--mid);line-height:1.72">Body text uses DM Sans at weight 400–500, 13–14px with 1.65–1.72 line-height. Warm, readable and grounded — it carries the nurturing, practical side of your brand without competing with the DM Serif Display headlines.</div>
+        <div class="type-scale">DM Sans 400 · 13–14px · line-height: 1.65–1.72 · color: #6B2A3A</div>
+      </div>
+      <div>
+        <div class="type-meta">Button text — 12–13px</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <button class="btn-mag">Join the Circle</button>
+          <button class="btn-ora">Book a Call</button>
+          <button class="btn-out">Learn more</button>
+          <div style="background:var(--GM);padding:8px;border-radius:10px;position:relative;overflow:hidden;display:inline-block">
+            <div style="position:absolute;inset:0;background:var(--GT)"></div>
+            <button class="btn-white" style="position:relative">CTA on gradient →</button>
+          </div>
+        </div>
+        <div class="type-scale">DM Sans 700 · 12–13px · border-radius: 50px (pill) · never lower</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LOGO ══ -->
+  <section class="section" id="sec-logo">
+    <div class="sec-eyebrow">03 — Identity mark</div>
+    <h2 class="sec-title">Your <em>logo</em></h2>
+    <p class="sec-desc">Built pixel-accurately from your uploaded PNG. Never stretch, recolour, rotate or rearrange any element.</p>
+
+    <div class="card">
+      <div class="card-label">Usage contexts</div>
+      <div class="logo-contexts">
+        <div class="logo-ctx light">
+          <svg width="100" height="100" viewBox="0 0 120 120" fill="none">
+            <defs>
+              <linearGradient id="hg2" x1="40" y1="18" x2="80" y2="88" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#EBB8C2"/><stop offset="50%" stop-color="#D9909E"/><stop offset="100%" stop-color="#C87888"/></linearGradient>
+              <linearGradient id="lg2" x1="55" y1="28" x2="65" y2="75" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="rgba(255,255,255,.62)"/><stop offset="100%" stop-color="rgba(255,255,255,.10)"/></linearGradient>
+            </defs>
+            <path d="M18 64A42 42 0 0 0 102 64" stroke="#E8902A" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <line x1="60" y1="8" x2="60" y2="22" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="36" y1="14" x2="41" y2="26" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="17" y1="31" x2="27" y2="37" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="84" y1="14" x2="79" y2="26" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="103" y1="31" x2="93" y2="37" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="11" y1="55" x2="22" y2="57" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="16" y1="77" x2="27" y2="73" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="109" y1="55" x2="98" y2="57" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="104" y1="77" x2="93" y2="73" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M60 84C60 84 28 63 28 42C28 29 37 22 46 25C52 27 57 32 60 39C63 32 68 27 74 25C83 22 92 29 92 42C92 63 60 84 60 84Z" fill="url(#hg2)"/>
+            <path d="M60 39C57 50 51 60 47 72" stroke="url(#lg2)" stroke-width="5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="logo-ctx-label">On blush #FFF5F8<br>or white — no treatment needed</div>
+        </div>
+        <div class="logo-ctx dark">
+          <div class="logo-ring">
+            <svg width="80" height="80" viewBox="0 0 120 120" fill="none">
+              <defs>
+                <linearGradient id="hg3" x1="40" y1="18" x2="80" y2="88" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#EBB8C2"/><stop offset="50%" stop-color="#D9909E"/><stop offset="100%" stop-color="#C87888"/></linearGradient>
+                <linearGradient id="lg3" x1="55" y1="28" x2="65" y2="75" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="rgba(255,255,255,.62)"/><stop offset="100%" stop-color="rgba(255,255,255,.10)"/></linearGradient>
+              </defs>
+              <path d="M18 64A42 42 0 0 0 102 64" stroke="#E8902A" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+              <line x1="60" y1="8" x2="60" y2="22" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="36" y1="14" x2="41" y2="26" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="17" y1="31" x2="27" y2="37" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="84" y1="14" x2="79" y2="26" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="103" y1="31" x2="93" y2="37" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="11" y1="55" x2="22" y2="57" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="16" y1="77" x2="27" y2="73" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="109" y1="55" x2="98" y2="57" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="104" y1="77" x2="93" y2="73" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M60 84C60 84 28 63 28 42C28 29 37 22 46 25C52 27 57 32 60 39C63 32 68 27 74 25C83 22 92 29 92 42C92 63 60 84 60 84Z" fill="url(#hg3)"/>
+              <path d="M60 39C57 50 51 60 47 72" stroke="url(#lg3)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="logo-ctx-label">On gradient — wrap in frosted ring<br>rgba(255,255,255,0.18)</div>
+        </div>
+      </div>
+      <div class="card-note">Minimum size: 48px. Never use on dark solid colours, busy photos, or any background other than blush, white, or your brand gradients.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Logo anatomy</div>
+      <div class="anatomy-grid">
+        <div class="anatomy-item">
+          <div class="anatomy-label">Heart / leaf</div>
+          <div class="anatomy-val">Blush to rose gradient</div>
+          <div class="anatomy-hex">#EBB8C2 → #C87888</div>
+        </div>
+        <div class="anatomy-item">
+          <div class="anatomy-label">Sun rays</div>
+          <div class="anatomy-val">Warm golden yellow</div>
+          <div class="anatomy-hex">#F2B830</div>
+        </div>
+        <div class="anatomy-item">
+          <div class="anatomy-label">Lower arc border</div>
+          <div class="anatomy-val">Warm orange</div>
+          <div class="anatomy-hex">#E8902A</div>
+        </div>
+        <div class="anatomy-item">
+          <div class="anatomy-label">"Thrive Together"</div>
+          <div class="anatomy-val">Soft dusty rose · italic serif</div>
+          <div class="anatomy-hex">#D4899F</div>
+        </div>
+        <div class="anatomy-item">
+          <div class="anatomy-label">"Circle"</div>
+          <div class="anatomy-val">Warm orange · italic serif</div>
+          <div class="anatomy-hex">#E8902A</div>
+        </div>
+        <div class="anatomy-item">
+          <div class="anatomy-label">Leaf vein highlight</div>
+          <div class="anatomy-val">White fade overlay</div>
+          <div class="anatomy-hex">rgba(255,255,255,0.60)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Clear space rule</div>
+      <div class="clearspace">
+        <span class="cs-label top">1× logo height</span>
+        <span class="cs-label bottom">1× logo height</span>
+        <span class="cs-label left">1× width</span>
+        <span class="cs-label right">1× width</span>
+        <svg width="64" height="64" viewBox="0 0 120 120" fill="none">
+          <defs>
+            <linearGradient id="hg4" x1="40" y1="18" x2="80" y2="88" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#EBB8C2"/><stop offset="50%" stop-color="#D9909E"/><stop offset="100%" stop-color="#C87888"/></linearGradient>
+            <linearGradient id="lg4" x1="55" y1="28" x2="65" y2="75" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="rgba(255,255,255,.62)"/><stop offset="100%" stop-color="rgba(255,255,255,.10)"/></linearGradient>
+          </defs>
+          <path d="M18 64A42 42 0 0 0 102 64" stroke="#E8902A" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          <line x1="60" y1="8" x2="60" y2="22" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="36" y1="14" x2="41" y2="26" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="17" y1="31" x2="27" y2="37" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="84" y1="14" x2="79" y2="26" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="103" y1="31" x2="93" y2="37" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M60 84C60 84 28 63 28 42C28 29 37 22 46 25C52 27 57 32 60 39C63 32 68 27 74 25C83 22 92 29 92 42C92 63 60 84 60 84Z" fill="url(#hg4)"/>
+          <path d="M60 39C57 50 51 60 47 72" stroke="url(#lg4)" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-note">Always maintain at least one logo-width of clear space on all four sides. Never crowd the logo with text or other elements.</div>
+    </div>
+  </section>
+
+  <!-- ══ COMPONENTS ══ -->
+  <section class="section" id="sec-comps">
+    <div class="sec-eyebrow">04 — Design system</div>
+    <h2 class="sec-title">Components & <em>patterns</em></h2>
+    <p class="sec-desc">Every interactive element and reusable pattern used across your community, classroom and marketing materials.</p>
+
+    <div class="card">
+      <div class="comp-row">
+        <div class="comp-label">Buttons</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:6px">
+          <button class="btn-mag">Join the Circle</button>
+          <button class="btn-ora">Book a Call</button>
+          <button class="btn-out">Learn more</button>
+        </div>
+        <div style="display:inline-block;padding:8px;border-radius:10px;background:var(--GM);position:relative;overflow:hidden">
+          <div style="position:absolute;inset:0;background:var(--GT)"></div>
+          <button class="btn-white" style="position:relative">CTA on gradient →</button>
+        </div>
+        <div class="comp-note">Pill-shaped (border-radius: 50px). Magenta = primary CTA. Orange = secondary CTA. Outline = tertiary. Always white text on solid fills. DM Sans 700.</div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-label">Membership tier badges — hover to preview</div>
+        <div class="tier-row">
+          <div class="tier"><div class="tier-icon">🌱</div><div class="tier-name">Founding Member</div><div class="tier-price">Free</div></div>
+          <div class="tier"><div class="tier-icon">🌸</div><div class="tier-name">Circle Member</div><div class="tier-price">$97/mo</div></div>
+          <div class="tier"><div class="tier-icon">✨</div><div class="tier-name">1:1 with Jude</div><div class="tier-price">Discovery Call</div></div>
+        </div>
+        <div class="comp-note">Coloured 2px border on blush background at rest → full primary gradient on hover. Minimum width 100px. DM Serif Display name, DM Sans price.</div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-label">Key takeaway cards — ✦ bullet</div>
+        <div class="kp-list">
+          <div class="kp"><span class="kp-bullet">✦</span><span class="kp-text">You are allowed to grow at your own pace.</span></div>
+          <div class="kp"><span class="kp-bullet">✦</span><span class="kp-text">Connection and community make the hard parts easier.</span></div>
+          <div class="kp"><span class="kp-bullet">✦</span><span class="kp-text">Real growth doesn't require perfection — just presence.</span></div>
+        </div>
+        <div class="comp-note">Vivid magenta ✦ diamond bullet. Blush background with border. Single accent colour per list — never mix colours across bullets in the same list.</div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-label">"Jude says" quote block</div>
+        <div class="jude-quote">
+          <span class="jq-lbl">💛 Jude says</span>
+          This is the kind of room where women genuinely support each other. No ego, just real connections and referrals that actually lead somewhere.
+        </div>
+        <div class="comp-note">Left border 3px solid magenta (border-radius: 0 on single-sided borders). Italic body text at 13px. Soft gradient background. 9px uppercase magenta label above.</div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-label">Tag pills</div>
+        <div class="tag-row">
+          <span class="tag-pill">Networking</span>
+          <span class="tag-pill">Women in Business</span>
+          <span class="tag-pill">Community</span>
+          <span class="tag-pill accent">Featured</span>
+          <span class="tag-pill orange">Self-growth</span>
+          <span class="tag-pill orange">Spirituality</span>
+        </div>
+        <div class="comp-note">Default: blush bg, muted berry text. Accent variant: 10% brand colour background with matching dark text. Pill-shaped (50px radius).</div>
+      </div>
+
+      <div>
+        <div class="comp-label">Section label pattern</div>
+        <div style="margin-bottom:12px">
+          <div class="sec-eyebrow" style="margin-bottom:5px">Section eyebrow label</div>
+          <div style="font-family:var(--serif);font-size:20px;color:var(--berry);margin-bottom:4px">Section title with <em style="color:var(--mag);font-style:italic">italic em</em></div>
+          <div style="font-size:13.5px;color:var(--muted);line-height:1.65">One or two lines of warm copy that sets up what follows in this section of your content.</div>
+        </div>
+        <div class="comp-note">Eyebrow: 9px uppercase magenta with fading right-rule line. Title: DM Serif Display. Description: DM Sans 400 at muted colour. Always stack in this order.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TEMPLATES ══ -->
+  <section class="section" id="sec-templates">
+    <div class="sec-eyebrow">05 — Layout templates</div>
+    <h2 class="sec-title">Slides, docs & <em>content</em></h2>
+    <p class="sec-desc">Ready-to-reference layout patterns for your classroom sessions, Skool posts and marketing materials.</p>
+
+    <div class="card">
+      <div class="card-label">Slide templates</div>
+      <div class="slide-tabs" id="slideTabs">
+        <button class="slide-tab active" onclick="showSlide('title')">Title slide</button>
+        <button class="slide-tab" onclick="showSlide('content')">Content slide</button>
+        <button class="slide-tab" onclick="showSlide('cta')">CTA slide</button>
+      </div>
+
+      <div id="sl-title">
+        <div class="slide-preview" style="background:var(--GM)">
+          <div style="position:absolute;inset:0;background:var(--GT)"></div>
+          <div style="position:absolute;top:-40%;left:-40%;width:160%;height:160%;background:radial-gradient(ellipse,rgba(232,25,106,.15) 0%,transparent 60%);pointer-events:none"></div>
+          <div style="padding:36px 28px;text-align:center;position:relative;z-index:1">
+            <div style="display:flex;justify-content:center;margin-bottom:14px">
+              <div style="background:rgba(255,255,255,.18);border-radius:50%;padding:7px">
+                <svg width="44" height="44" viewBox="0 0 120 120" fill="none">
+                  <defs><linearGradient id="hgs" x1="40" y1="18" x2="80" y2="88" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#EBB8C2"/><stop offset="50%" stop-color="#D9909E"/><stop offset="100%" stop-color="#C87888"/></linearGradient><linearGradient id="lgs" x1="55" y1="28" x2="65" y2="75" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="rgba(255,255,255,.62)"/><stop offset="100%" stop-color="rgba(255,255,255,.10)"/></linearGradient></defs>
+                  <path d="M18 64A42 42 0 0 0 102 64" stroke="#E8902A" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+                  <line x1="60" y1="8" x2="60" y2="22" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+                  <line x1="36" y1="14" x2="41" y2="26" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+                  <line x1="17" y1="31" x2="27" y2="37" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+                  <line x1="84" y1="14" x2="79" y2="26" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+                  <line x1="103" y1="31" x2="93" y2="37" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+                  <path d="M60 84C60 84 28 63 28 42C28 29 37 22 46 25C52 27 57 32 60 39C63 32 68 27 74 25C83 22 92 29 92 42C92 63 60 84 60 84Z" fill="url(#hgs)"/>
+                  <path d="M60 39C57 50 51 60 47 72" stroke="url(#lgs)" stroke-width="5" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.72);text-transform:uppercase;margin-bottom:10px">Thrive Together Circle · Classroom</div>
+            <div style="font-family:var(--serif);font-size:26px;color:#fff;line-height:1.2;margin-bottom:10px">Your Lesson Title <em style="color:var(--goldlt);font-style:italic">Here.</em></div>
+            <div style="font-size:13px;color:rgba(255,255,255,.76);line-height:1.65;max-width:300px;margin:0 auto">A warm subtitle that makes your members feel seen and ready to learn.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sl-content" style="display:none">
+        <div class="slide-preview" style="background:var(--blush);border:1px solid var(--bdr);padding:28px 24px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:1.2px;color:var(--mag);text-transform:uppercase;margin-bottom:10px">Key takeaways</div>
+          <div style="font-family:var(--serif);font-size:22px;color:var(--berry);margin-bottom:18px">Your section headline <em style="color:var(--mag);font-style:italic">here.</em></div>
+          <div class="kp-list">
+            <div class="kp"><span class="kp-bullet">✦</span><span class="kp-text">You don't need to have it all figured out to start.</span></div>
+            <div class="kp"><span class="kp-bullet">✦</span><span class="kp-text">Small consistent steps create lasting change.</span></div>
+            <div class="kp"><span class="kp-bullet">✦</span><span class="kp-text">This community holds space for your whole journey.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sl-cta" style="display:none">
+        <div class="slide-preview" style="background:var(--GA)">
+          <div style="position:absolute;inset:0;background:var(--GT)"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:140%;height:140%;background:radial-gradient(circle,rgba(240,120,32,.15) 0%,transparent 60%);pointer-events:none"></div>
+          <div style="padding:36px 28px;text-align:center;position:relative;z-index:1">
+            <div style="font-size:24px;margin-bottom:14px">🌸</div>
+            <div style="font-family:var(--serif);font-size:24px;color:#fff;line-height:1.3;margin-bottom:10px">You've got this,<br><em style="color:var(--goldlt);font-style:italic">beautiful soul.</em></div>
+            <div style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.65;max-width:280px;margin:0 auto 18px">Share your reflection in the community — your story might be exactly what someone else needs.</div>
+            <button class="btn-white">Join the Circle →</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-note">Title slide: primary gradient + gold thread + logo ring + DM Serif headline. Content slide: blush bg + ✦ bullets. CTA: alt gradient + radial glow + white pill button.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Session document template</div>
+      <div class="doc-frame">
+        <div class="doc-header">
+          <div class="doc-header-inner">
+            <div class="doc-logo-ring">
+              <svg width="32" height="32" viewBox="0 0 120 120" fill="none">
+                <defs><linearGradient id="hgd" x1="40" y1="18" x2="80" y2="88" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#EBB8C2"/><stop offset="50%" stop-color="#D9909E"/><stop offset="100%" stop-color="#C87888"/></linearGradient><linearGradient id="lgd" x1="55" y1="28" x2="65" y2="75" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="rgba(255,255,255,.62)"/><stop offset="100%" stop-color="rgba(255,255,255,.10)"/></linearGradient></defs>
+                <path d="M18 64A42 42 0 0 0 102 64" stroke="#E8902A" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+                <line x1="60" y1="8" x2="60" y2="22" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+                <line x1="36" y1="14" x2="41" y2="26" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+                <line x1="17" y1="31" x2="27" y2="37" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+                <line x1="84" y1="14" x2="79" y2="26" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+                <line x1="103" y1="31" x2="93" y2="37" stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M60 84C60 84 28 63 28 42C28 29 37 22 46 25C52 27 57 32 60 39C63 32 68 27 74 25C83 22 92 29 92 42C92 63 60 84 60 84Z" fill="url(#hgd)"/>
+                <path d="M60 39C57 50 51 60 47 72" stroke="url(#lgd)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:8px;font-weight:700;letter-spacing:1.2px;color:rgba(255,255,255,.72);text-transform:uppercase;margin-bottom:3px">Health & Wellbeing · Session 1 of 6 · 12 min</div>
+              <div style="font-family:var(--serif);font-size:18px;color:#fff">Nourishing Your Body <em style="color:var(--goldlt);font-style:italic">Gently</em></div>
+            </div>
+          </div>
+        </div>
+        <div class="doc-prog">
+          <span style="font-size:8px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px">Progress</span>
+          <div class="prog-bar"><div class="prog-fill" style="width:17%"></div></div>
+          <span class="prog-label">1/6</span>
+        </div>
+        <div class="doc-body">
+          <div style="font-size:13.5px;color:var(--mid);line-height:1.72;margin-bottom:18px">In this session, we explore what it really means to nourish yourself — not perfectly, not drastically, but gently and sustainably. You deserve to feel well in your body.</div>
+          <div style="font-size:9px;font-weight:700;letter-spacing:1.2px;color:var(--mag);text-transform:uppercase;margin-bottom:10px">Your gentle action steps</div>
+          <div class="step-row"><div class="step-circle">01</div><span class="step-text">Drink one extra glass of water today — just one.</span></div>
+          <div class="step-row"><div class="step-circle">02</div><span class="step-text">Write down one thing your body did well this week.</span></div>
+          <div class="step-row" style="margin-bottom:0"><div class="step-circle">03</div><span class="step-text">Share your reflection in Thrive Together Circle.</span></div>
+        </div>
+      </div>
+      <div class="card-note">Gradient header + logo ring + gold thread + progress bar. Magenta progress fill with orange gradient. Orange numbered circles for action steps.</div>
+    </div>
+  </section>
+
+  <!-- ══ VOICE ══ -->
+  <section class="section" id="sec-voice">
+    <div class="sec-eyebrow">06 — Communication</div>
+    <h2 class="sec-title">Voice & <em>tone</em></h2>
+    <p class="sec-desc">Nurturing, honest, grounded. Jude speaks like a trusted friend who genuinely wants the best for you — never pushy, never performative.</p>
+
+    <div class="card">
+      <div class="card-label">Voice principles</div>
+      <div class="principle-item">
+        <div class="p-num"><span>01</span></div>
+        <div><div class="p-head">Warm, not saccharine</div><div class="p-body">Genuine care without hollow positivity. Real words for real women who are navigating real life.</div></div>
+      </div>
+      <div class="principle-item">
+        <div class="p-num"><span>02</span></div>
+        <div><div class="p-head">Encouraging, not prescriptive</div><div class="p-body">Invite rather than instruct. "You might try..." not "You must..." Give permission, not orders.</div></div>
+      </div>
+      <div class="principle-item">
+        <div class="p-num"><span>03</span></div>
+        <div><div class="p-head">Honest about the hard stuff</div><div class="p-body">Growth isn't always linear. Name that, hold space for it, and never pretend otherwise.</div></div>
+      </div>
+      <div class="principle-item">
+        <div class="p-num"><span>04</span></div>
+        <div><div class="p-head">No perfection required</div><div class="p-body">Progress over perfect, always. Say it often. Model it yourself. It's the heartbeat of the brand.</div></div>
+      </div>
+      <div class="principle-item">
+        <div class="p-num"><span>05</span></div>
+        <div><div class="p-head">Grounded in lived experience</div><div class="p-body">Jude leads from what she's actually lived — as a mum of 4, grief coach and energy healer — not from theory.</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Do and don't</div>
+      <div class="voice-grid">
+        <div>
+          <div class="voice-box do">
+            <span class="voice-tag vt-do">Write this</span>
+            <div class="voice-text">"How are you really doing this week? Not the 'I'm fine' version — the real one."</div>
+          </div>
+          <div class="voice-box do">
+            <span class="voice-tag vt-do">Write this</span>
+            <div class="voice-text">"No win is too tiny. Getting out of bed counts. Choosing yourself counts."</div>
+          </div>
+          <div class="voice-box do">
+            <span class="voice-tag vt-do">Write this</span>
+            <div class="voice-text">"I've got you all. I'll be back Friday to hear how you got on."</div>
+          </div>
+        </div>
+        <div>
+          <div class="voice-box dont">
+            <span class="voice-tag vt-dont">Avoid this</span>
+            <div class="voice-text">"Unlock your full potential and step into your best self today!"</div>
+          </div>
+          <div class="voice-box dont">
+            <span class="voice-tag vt-dont">Avoid this</span>
+            <div class="voice-text">"You NEED to do this. Don't miss out — limited spots available!"</div>
+          </div>
+          <div class="voice-box dont">
+            <span class="voice-tag vt-dont">Avoid this</span>
+            <div class="voice-text">"Follow these 5 proven steps to transform your life in 30 days."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Key taglines</div>
+      <div class="tagline-card">
+        <div class="tagline-text">Clarity, <em>Connection</em> and Support.</div>
+      </div>
+      <div class="tagline-alt">"When life changes, you don't have to figure it out alone."</div>
+      <div class="tagline-alt">"Real growth. No perfection."</div>
+      <div class="tagline-alt">"A space for real growth, real connection, real support."</div>
+      <div class="card-note">Use the primary tagline consistently across all touchpoints. Secondary phrases can rotate in content but must feel like natural extensions of the same warm, grounded voice.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="brand-footer">
+    <div class="brand-footer-inner">
+      <div class="bf-title">Your brand, every output,<br><em>working for you.</em></div>
+      <div class="bf-sub">Thrive Together Circle · Brand Guidelines · by Jude Hill</div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+const PALETTE=[
+  {name:'Vivid magenta', hex:'#E8196A', role:'Hero & CTA sections'},
+  {name:'Hot pink',      hex:'#F0508A', role:'Gradient midpoint'},
+  {name:'Vivid orange',  hex:'#F07820', role:'Primary accent'},
+  {name:'Golden orange', hex:'#F5A84A', role:'Fills & highlights'},
+  {name:'Gold thread',   hex:'#C9952A', role:'Metallic overlay'},
+  {name:'Gold light',    hex:'#E8C060', role:'Italic em on gradient'},
+  {name:'Barely blush',  hex:'#FFF5F8', role:'Page background'},
+  {name:'White',         hex:'#FFFFFF', role:'Card surfaces'},
+  {name:'Deep berry',    hex:'#8B1A4A', role:'Headlines'},
+  {name:'Berry mid',     hex:'#6B2A3A', role:'Body copy'},
+  {name:'Muted berry',   hex:'#A0506A', role:'Subtitles'},
+  {name:'Quiet pink',    hex:'#D8A0B0', role:'Captions'},
+];
+
+const grid=document.getElementById('palGrid');
+PALETTE.forEach(c=>{
+  const light=['#FFF5F8','#FFFFFF'].includes(c.hex);
+  const el=document.createElement('div');
+  el.className='swatch';
+  el.innerHTML=`<div class="swatch-dot" style="background:${c.hex};${light?'border:1px solid rgba(232,25,106,.15)':''}"></div>
+    <div style="flex:1;min-width:0">
+      <div class="swatch-name">${c.name}</div>
+      <div class="swatch-hex">${c.hex}</div>
+    </div>
+    <div class="swatch-role">${c.role}</div>`;
+  el.onclick=()=>{
+    navigator.clipboard.writeText(c.hex).then(()=>{
+      const h=el.querySelector('.swatch-hex');
+      const o=h.textContent;
+      h.textContent='Copied!';
+      h.classList.add('flashed');
+      setTimeout(()=>{h.textContent=o;h.classList.remove('flashed')},1500);
+    });
+  };
+  grid.appendChild(el);
+});
+
+const SECTIONS=['palette','type','logo','comps','templates','voice'];
+
+function show(id){
+  SECTIONS.forEach(s=>{
+    const sec=document.getElementById('sec-'+s);
+    if(sec) sec.classList.toggle('active',s===id);
+  });
+  document.querySelectorAll('.nav-btn').forEach((b,i)=>{
+    b.classList.toggle('active',SECTIONS[i]===id);
+  });
+  document.querySelector('.content').scrollTop=0;
+  window.scrollTo(0,0);
+}
+
+const SLIDES=['title','content','cta'];
+function showSlide(id){
+  SLIDES.forEach(s=>{
+    const el=document.getElementById('sl-'+s);
+    if(el) el.style.display=s===id?'block':'none';
+  });
+  document.querySelectorAll('.slide-tab').forEach((b,i)=>{
+    b.classList.toggle('active',SLIDES[i]===id);
+  });
+}
+</script>
+</body>
+</html>
