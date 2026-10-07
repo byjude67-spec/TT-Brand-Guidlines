@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Thrive Together Circle — Session Graphic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Thrive Together Circle brand tokens (see references/brand-and-voice.md) */
+  :root {
+    --magenta: #E8196A; --pink: #F0508A; --orange: #F07820; --golden: #F2B830;
+    --gold: #C9952A; --gold-lt: #E8C060; --blush: #FFF5F8; --berry: #8B1A4A;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  .canvas {
+    position: relative; overflow: hidden; color: #fff;
+    width: var(--w); height: var(--h);
+    background: linear-gradient(135deg, var(--magenta) 0%, var(--pink) 50%, var(--orange) 100%);
+    font-family: var(--sans);
+  }
+  /* gold thread overlay: gradients only */
+  .canvas::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(45deg, rgba(201,149,42,0.20) 0 calc(var(--u)*0.18), transparent calc(var(--u)*0.18) calc(var(--u)*3.2));
+  }
+  .canvas::after {
+    content: ""; position: absolute; pointer-events: none;
+    width: calc(var(--u)*110); height: calc(var(--u)*110); right: calc(var(--u)*-35); top: calc(var(--u)*-40);
+    background: radial-gradient(circle, rgba(255,232,240,0.35) 0%, rgba(255,232,240,0) 65%);
+  }
+  .inner { position: relative; z-index: 1; height: 100%; display: flex; }
+
+  .brand { display: flex; align-items: center; gap: calc(var(--u)*1.6); }
+  .ring {
+    display: grid; place-items: center; border-radius: 50%;
+    background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35);
+  }
+  .brand .ring { width: calc(var(--u)*8.5); height: calc(var(--u)*8.5); }
+  .brand .ring svg { width: 78%; height: 78%; }
+  .brand-name { font-family: var(--serif); font-style: italic; font-size: calc(var(--u)*3.4); line-height: 1.05; }
+  .brand-name span { display: block; color: #FFE8F0; }
+
+  .eyebrow {
+    display: inline-block; font-weight: 700; text-transform: uppercase;
+    letter-spacing: calc(var(--u)*0.32); font-size: calc(var(--u)*2.0);
+    color: rgba(255,255,255,0.92); padding: calc(var(--u)*0.9) calc(var(--u)*2.2);
+    border: 1px solid rgba(255,255,255,0.45); border-radius: 50px; background: rgba(255,255,255,0.10);
+  }
+  h1 { font-family: var(--serif); font-weight: 400; line-height: 1.04; font-size: calc(var(--u)*var(--title, 9)); letter-spacing: -0.01em; text-wrap: balance; }
+  h1 em { color: var(--gold-lt); font-style: italic; }
+  .sub { font-size: calc(var(--u)*2.9); line-height: 1.45; color: rgba(255,255,255,0.86); text-wrap: pretty; }
+
+  .guest { display: flex; align-items: center; gap: calc(var(--u)*2.2); }
+  .photo {
+    flex: none; border-radius: 50%; overflow: hidden; display: grid; place-items: center;
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 0 0 calc(var(--u)*0.6) rgba(255,255,255,0.85), 0 0 0 calc(var(--u)*1.3) rgba(232,192,96,0.55), 0 calc(var(--u)*1.5) calc(var(--u)*5) rgba(139,26,74,0.35);
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .photo svg { width: 70%; height: 70%; }
+  .g-label { font-size: calc(var(--u)*1.8); font-weight: 700; letter-spacing: calc(var(--u)*0.25); text-transform: uppercase; color: rgba(255,255,255,0.72); }
+  .g-name { font-family: var(--serif); font-size: calc(var(--u)*4.6); line-height: 1.1; }
+  .g-role { font-size: calc(var(--u)*2.3); color: rgba(255,255,255,0.85); line-height: 1.35; }
+
+  .when { font-weight: 700; font-size: calc(var(--u)*2.9); line-height: 1.3; }
+  .when small { display: block; font-weight: 500; font-size: calc(var(--u)*2.2); color: rgba(255,255,255,0.8); }
+  .cta {
+    display: inline-block; background: #fff; color: var(--magenta); font-weight: 700;
+    font-size: calc(var(--u)*2.7); padding: calc(var(--u)*1.7) calc(var(--u)*4); border-radius: 50px;
+    box-shadow: 0 calc(var(--u)*0.8) calc(var(--u)*2.5) rgba(139,26,74,0.25);
+  }
+  .tag { font-family: var(--serif); font-style: italic; font-size: calc(var(--u)*2.6); color: rgba(255,255,255,0.85); }
+
+  /* ---------- landscape (Eventbrite header) ---------- */
+  .landscape .inner { flex-direction: row; align-items: center; padding: calc(var(--u)*7) calc(var(--u)*9); gap: calc(var(--u)*6); }
+  .landscape .col-text { flex: 1 1 0; display: flex; flex-direction: column; gap: calc(var(--u)*3); min-width: 0; }
+  .landscape .col-art { flex: none; display: flex; flex-direction: column; align-items: center; gap: calc(var(--u)*3); text-align: center; }
+  .landscape .col-art .photo { width: calc(var(--u)*46); height: calc(var(--u)*46); }
+  .landscape .guest .photo { display: none; }
+  .landscape .mid { display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--u)*2.6); }
+  .landscape .sub { max-width: 95%; }
+  .landscape .foot { display: flex; align-items: center; gap: calc(var(--u)*3); }
+
+  /* ---------- stacked (square, portrait, story) ---------- */
+  .stacked .inner { flex-direction: column; align-items: center; text-align: center; justify-content: space-between; padding: var(--pad-top) calc(var(--u)*6) var(--pad-bottom); }
+  .stacked .col-text { display: contents; }
+  .stacked .col-art { display: none; }
+  .stacked .mid { display: flex; flex-direction: column; align-items: center; gap: calc(var(--u)*var(--gap, 3)); }
+  .stacked .guest { flex-direction: column; gap: calc(var(--u)*1.8); }
+  .stacked .guest .photo { width: calc(var(--u)*var(--photo, 26)); height: calc(var(--u)*var(--photo, 26)); }
+  .stacked .brand { margin-bottom: calc(var(--u)*1.5); }
+  .stacked .foot { display: flex; flex-direction: column; align-items: center; gap: calc(var(--u)*2.2); }
+  .square .foot { flex-direction: row; gap: calc(var(--u)*4); text-align: left; }
+  .square .sub { font-size: calc(var(--u)*2.7); }
+  .hide { display: none !important; }
+</style>
+</head>
+<body>
+<div class="canvas" id="canvas">
+  <div class="inner">
+    <div class="col-text">
+      <div class="brand">
+        <div class="ring"><svg data-mark viewBox="0 0 120 120"></svg></div>
+        <div class="brand-name">Thrive Together <span>Circle</span></div>
+      </div>
+      <div class="mid">
+        <div><span class="eyebrow" data-f="eyebrow"></span></div>
+        <h1 data-f="title"></h1>
+        <p class="sub" data-f="subtitle"></p>
+        <div class="guest">
+          <div class="photo" data-photo></div>
+          <div>
+            <div class="g-label" data-f="guestLabel"></div>
+            <div class="g-name" data-f="guestName"></div>
+            <div class="g-role" data-f="guestRole"></div>
+          </div>
+        </div>
+      </div>
+      <div class="foot">
+        <div class="when"><span data-f="date"></span><small data-f="time"></small></div>
+        <span class="cta" data-f="cta"></span>
+        <div class="tag" data-f="tagline"></div>
+      </div>
+    </div>
+    <div class="col-art"><div class="photo" data-photo></div></div>
+  </div>
+</div>
+<script>
+// Logo mark, vector, from the brand guidelines
+const MARK = `<defs>
+<linearGradient id="hg" x1="40" y1="18" x2="80" y2="88" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#EBB8C2"/><stop offset="50%" stop-color="#D9909E"/><stop offset="100%" stop-color="#C87888"/></linearGradient>
+<linearGradient id="lg" x1="55" y1="28" x2="65" y2="75" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="rgba(255,255,255,.62)"/><stop offset="100%" stop-color="rgba(255,255,255,.10)"/></linearGradient></defs>
+<path d="M18 64A42 42 0 0 0 102 64" stroke="#E8902A" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+<g stroke="#F2B830" stroke-width="2.2" stroke-linecap="round"><line x1="60" y1="8" x2="60" y2="22"/><line x1="36" y1="14" x2="41" y2="26"/><line x1="17" y1="31" x2="27" y2="37"/><line x1="84" y1="14" x2="79" y2="26"/><line x1="103" y1="31" x2="93" y2="37"/><line x1="11" y1="55" x2="22" y2="57"/><line x1="16" y1="77" x2="27" y2="73"/><line x1="109" y1="55" x2="98" y2="57"/><line x1="104" y1="77" x2="93" y2="73"/></g>
+<path d="M60 84C60 84 28 63 28 42C28 29 37 22 46 25C52 27 57 32 60 39C63 32 68 27 74 25C83 22 92 29 92 42C92 63 60 84 60 84Z" fill="url(#hg)"/>
+<path d="M60 39C57 50 51 60 47 72" stroke="url(#lg)" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+
+// Defaults: overridden by window.CONFIG (injected by render-graphics.mjs)
+const C = Object.assign({
+  width: 1080, height: 1080, format: 'square',
+  eyebrow: 'Guest Expert Session', title: 'Your *Session* Title', subtitle: '',
+  guestLabel: 'With', guestName: 'Guest Name', guestRole: '',
+  date: '[DATE]', time: '[TIME]', cta: 'Join us in the Circle', tagline: 'Clarity, Connection and Support.',
+  photo: '', hide: []
+}, window.CONFIG || {});
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const cv = document.getElementById('canvas');
+// tall formats have room to scale type up
+const W = C.width, H = C.height, u = Math.min(W, H) / 100 * ({ story: 1.2 }[C.format] || 1);
+cv.style.setProperty('--w', W + 'px'); cv.style.setProperty('--h', H + 'px'); cv.style.setProperty('--u', u + 'px');
+
+const landscape = W / H > 1.3;
+cv.classList.add(landscape ? 'landscape' : 'stacked', C.format);
+// per-format tuning
+const tune = {
+  landscape: { title: 10.5 },
+  square:    { title: 8.2, photo: 15, gap: 2.2, top: 5.5, bottom: 5.5 },
+  portrait:  { title: 9.4, photo: 27, gap: 3.2, top: 7, bottom: 7 },
+  story:     { title: 7.8, photo: 22, gap: 3.4, topPx: 250, bottomPx: 300 },
+}[landscape ? 'landscape' : C.format] || {};
+if (tune.title) cv.style.setProperty('--title', tune.title);
+if (tune.photo) cv.style.setProperty('--photo', tune.photo);
+if (tune.gap) cv.style.setProperty('--gap', tune.gap);
+cv.style.setProperty('--pad-top', tune.topPx ? tune.topPx + 'px' : (tune.top || 7) * u + 'px');
+cv.style.setProperty('--pad-bottom', tune.bottomPx ? tune.bottomPx + 'px' : (tune.bottom || 7) * u + 'px');
+
+for (const el of document.querySelectorAll('[data-f]')) {
+  const k = el.dataset.f, v = C[k] ?? '';
+  if (!v || C.hide.includes(k)) { el.classList.add('hide'); continue; }
+  // *word* → the one italic accent (brand rule: only one per headline)
+  el.innerHTML = k === 'title' ? esc(v).replace(/\*(.+?)\*/, '<em>$1</em>').replace(/\*/g, '') : esc(v);
+}
+// the square/story layouts keep the tagline off to save space unless asked
+if (!landscape && C.format !== 'portrait' && !C.forceTagline) document.querySelector('.tag').classList.add('hide');
+
+for (const el of document.querySelectorAll('[data-mark]')) el.innerHTML = MARK;
+for (const el of document.querySelectorAll('[data-photo]')) {
+  el.innerHTML = C.photo ? `<img src="${esc(C.photo)}" alt="">` : `<svg viewBox="0 0 120 120">${MARK}</svg>`;
+}
+</script>
+</body>
+</html>
